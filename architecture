@@ -1,6 +1,6 @@
 @startuml
-' Professional styling
-skinparam backgroundColor #FCFCFC
+' Professional styling - pure white background
+skinparam backgroundColor #FFFFFF
 skinparam component {
   BackgroundColor #FFFFFF
   BorderColor #2C3E50
@@ -14,7 +14,7 @@ skinparam arrow {
   Thickness 1.5
 }
 skinparam rectangle {
-  BackgroundColor #F8F9FA
+  BackgroundColor #FFFFFF
   BorderColor #D5D8DC
   FontColor #2C3E50
   FontStyle bold
@@ -24,8 +24,6 @@ skinparam title {
   FontSize 16
   FontColor #1A5276
 }
-
-
 
  
   component "Web Interface" as WebInterface #FFFFFF
@@ -43,6 +41,5 @@ skinparam title {
   
   Visualization --> DataStorage : reads results
   
-
 
 @enduml
