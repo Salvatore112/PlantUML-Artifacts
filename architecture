@@ -1,0 +1,48 @@
+@startuml
+' Professional styling
+skinparam backgroundColor #FCFCFC
+skinparam component {
+  BackgroundColor #FFFFFF
+  BorderColor #2C3E50
+  BorderThickness 1.5
+  FontColor #2C3E50
+  FontStyle bold
+  FontSize 12
+}
+skinparam arrow {
+  Color #5D6D7E
+  Thickness 1.5
+}
+skinparam rectangle {
+  BackgroundColor #F8F9FA
+  BorderColor #D5D8DC
+  FontColor #2C3E50
+  FontStyle bold
+  FontSize 14
+}
+skinparam title {
+  FontSize 16
+  FontColor #1A5276
+}
+
+
+
+ 
+  component "Web Interface" as WebInterface #FFFFFF
+  component "Simulation Core" as SimulationCore #FFFFFF
+  component "Algorithm Repository\n(Base & Custom algorithms)" as AlgorithmRepo #FFFFFF
+  component "Data Storage\n(DB / Session)" as DataStorage #FFFFFF
+  component "Visualization" as Visualization #FFFFFF
+  
+  WebInterface --> SimulationCore : configures & runs
+  WebInterface --> AlgorithmRepo : selects
+  WebInterface --> Visualization : displays results
+  
+  SimulationCore --> AlgorithmRepo : executes
+  SimulationCore --> DataStorage : saves estimates
+  
+  Visualization --> DataStorage : reads results
+  
+
+
+@enduml
