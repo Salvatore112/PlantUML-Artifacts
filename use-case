@@ -1,12 +1,16 @@
 @startuml
+hide footbox
+
 ' Professional styling - pure white background
 skinparam backgroundColor #FFFFFF
+
 skinparam actor {
   BackgroundColor #FFFFFF
   BorderColor #2C3E50
   FontColor #2C3E50
   FontStyle bold
 }
+
 skinparam participant {
   BackgroundColor #FFFFFF
   BorderColor #2C3E50
@@ -14,10 +18,12 @@ skinparam participant {
   FontColor #2C3E50
   FontSize 12
 }
+
 skinparam arrow {
   Color #5D6D7E
   Thickness 1.5
 }
+
 skinparam sequenceMessage {
   FontColor #2C3E50
   FontSize 11
@@ -27,15 +33,13 @@ actor "User" as User
 
 participant "Web Interface" as Web
 participant "Simulation Core" as Core
-participant "Algorithm Repository" as AlgoRepo
+participant "Algorithms & Scenarios Repository" as AlgoRepo
 participant "Visualization" as Viz
 
 User -> Web : 1. Opens setup page
 Web --> User : Displays configuration form
 
-User -> Web : 2. Configures simulation\n(duration, sensors, targets)
-User -> Web : 3. Selects algorithms\n(SPSA, Accelerated SPSA)
-User -> Web : 4. Clicks "Run Simulation"
+User -> Web : 2. Configures simulation
 
 Web -> Core : 5. Start simulation with\nselected parameters
 Core -> Core : 6. Generate targets movement\n(add noise if enabled)
@@ -51,6 +55,6 @@ Core --> Web : 9. Simulation complete\n(estimates & errors)
 Web -> Viz : 10. Generate plots
 Viz --> Web : Trajectories & convergence plots
 
-Web --> User : 11. Display results:\n- Trajectory plots\n- Error convergence\n- Algorithm comparison
+Web --> User : 11. Display results
 
 @enduml
